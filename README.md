@@ -1,6 +1,6 @@
 # gamAI Skills
 
-**992 production-ready Agent Skills** for Claude Code, Cursor, opencode, and any tool that speaks the Agent Skills format.
+**[gamAI Core 100](CORE_100.md)** - the 100 flagship skills to start with. Full library: **992 production-ready Agent Skills** for Claude Code, Cursor, opencode, and any tool that speaks the Agent Skills format.
 
 Each skill is a self-contained `SKILL.md`. Drop it in and your agent instantly gets a proven workflow.
 
