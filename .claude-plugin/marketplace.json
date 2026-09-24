@@ -1,0 +1,15 @@
+{
+  "name": "gamai-skills",
+  "owner": "gamAI",
+  "metadata": {
+    "description": "Practical Agent Skills for everyday business and dev work.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "gamai-skills",
+      "source": "./",
+      "description": "A growing library of production-ready Agent Skills (emails, SEO, meeting notes, invoices, translation)."
+    }
+  ]
+}
