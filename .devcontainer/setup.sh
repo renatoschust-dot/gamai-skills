@@ -6,7 +6,12 @@ fi
 sudo pkill tailscaled 2>/dev/null || true
 sudo nohup tailscaled --tun=userspace-networking --socks5-server=localhost:1055 >/tmp/tsd.log 2>&1 &
 sleep 3
-sudo tailscale up --hostname="$(hostname)" 2>&1 | head -3 || true
+if [ -n "$TS_AUTHKEY" ]; then
+  sudo tailscale up --authkey="$TS_AUTHKEY" --hostname="$(hostname)" 2>&1 | head -2
+else
+  echo "TS_AUTHKEY nije postavljen (secret) - preskacem auto-join"
+  sudo tailscale up --hostname="$(hostname)" 2>&1 | head -2
+fi
 if ! command -v opencode >/dev/null 2>&1; then
   curl -fsSL https://opencode.ai/install | bash || true
 fi
