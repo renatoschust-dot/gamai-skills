@@ -1,5 +1,8 @@
 # gamAI Skills
 
+[![validate-skills](https://github.com/renatoschust-dot/gamai-skills/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/renatoschust-dot/gamai-skills/actions/workflows/validate-skills.yml)[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+
 **[gamAI Core 100](CORE_100.md)** - the 100 flagship skills to start with. Full library: **992 production-ready Agent Skills** for Claude Code, Cursor, opencode, and any tool that speaks the Agent Skills format.
 
 Each skill is a self-contained `SKILL.md`. Drop it in and your agent instantly gets a proven workflow.
