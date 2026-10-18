@@ -1,3 +1,8 @@
+---
+name: notes
+description: Manage IMA personal notes and notebooks via the IMA OpenAPI (search, list, read, create, append). Use when a user asks to read or write personal notes.
+---
+
 # Notes (笔记)
 
 > Prerequisites: see root `../SKILL.md` for setup, credentials, and `ima_api()` helper.
