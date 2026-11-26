@@ -22,6 +22,7 @@ cp -r gamai-skills/skills/* .claude/skills/          # Claude Code, per project
 |---|---|
 | `gama-agent-factory` | Izrada privatnih AI agenata za firme. Custom agent koji radi zadatke 24/7. Aktivira se na 'napravi agenta', 'ai agent za firmu', 'privatn… |
 | `gama-autonomous` | AUTONOMOUS AGENTS — Agents that work without supervision, make decisions, handle complex workflows. Self-healing, self-optimizing. |
+| `gama-container-lab` | Container lab across remote hosts — Docker on Crusoe and Vultr instances, driven over the HC protocol. Use when you need a real container… |
 | `gama-hc-harness` | Human Compute (HC) automation harness — deterministički upravlja računarom (klik, kucanje, čitanje ekrana) preko UI Automation prvo, pa k… |
 | `gama-predictive` | PREDICTIVE AI — Anticipates customer needs, predicts trends, foresees problems before they happen. 10x advantage through prediction. |
 | `gama-sandbox-srt` | Izoluj pokretanje nepouzdanog koda, skillova ili MCP servera preko Anthropic Sandbox Runtime (srt) - OS-level fs + mreza gate BEZ Docker… |
@@ -29,7 +30,6 @@ cp -r gamai-skills/skills/* .claude/skills/          # Claude Code, per project
 | `gama-self-organize` | SELF-ORGANIZING SYSTEM — Automatically organizes work, prioritizes tasks, manages time, optimizes workflows. The conductor of the orchestra. |
 | `gama-superbrowser` | Jedinstveni GAMA browser/devtools tool preko CDP (Chrome/Edge). Koristi ga kad treba otvoriti sajt, pročitati stranicu, KLIKNUTI element,… |
 | `gama-teleport` | META-SKILL teleporta — "morph" skill za BRZO kreiranje novih GAMA skillova. Koristi D:\ai\gama_skill_gen.py (scan/search/make) + skill-ex… |
-| `gama-vmlab-lab` | Radi na GAMA vmlab (Lab VM) — pravi lokalni Docker daemon, gVisor, k3s, Firecracker mikro-VM sa KVM-om, gama-net bridge i GPU. Koristi ka… |
 
 ## Start here
 
@@ -38,7 +38,7 @@ cp -r gamai-skills/skills/* .claude/skills/          # Claude Code, per project
 - **`gama-superbrowser`** — read and click a real page over CDP, a11y-first; no headless surprises.
 - **`gama-sandbox-srt`** — run untrusted code with no network and no secrets, without Docker.
 - **`gama-self-organize` / `gama-autonomous`** — how to structure a long-running agent task.
-- **`gama-vmlab-lab`** — a reproducible lab (containers, k3s, Firecracker) you can measure on.
+- **`gama-container-lab`** — a real Docker host on Crusoe or Vultr, driven over the fleet; k3s/Firecracker where KVM exists.
 
 ## Honest notes
 
