@@ -7,7 +7,7 @@ and what is still missing. Numbers below are verifiable from the repository or a
 
 | Claim | How to verify |
 |---|---|
-| 992 public skills, each a `SKILL.md` with frontmatter | `find skills -name SKILL.md | wc -l`, and CI job `validate-skills` |
+| 25 published skills, each a `SKILL.md` with frontmatter | `find skills -name SKILL.md | wc -l`, and CI job `validate-skills` |
 | Frontmatter validated on every push | GitHub Actions, workflow `validate-skills` (green) |
 | Skills are plain Markdown, MIT licensed | `LICENSE`, file format |
 | Runtime uses OpenAI-compatible APIs | `docs/ARCHITECTURE.md` |

@@ -26,7 +26,7 @@ user request
 | Component | Responsibility |
 |---|---|
 | `router` | Classifies the request into a domain (sales, finance, code, ops, ...) using rules first, model second |
-| `skills` | Each skill is a `SKILL.md` with YAML frontmatter (`name`, `description`) and a procedure. 992 public, 4500+ in the internal library |
+| `skills` | Each skill is a `SKILL.md` with YAML frontmatter (`name`, `description`) and a procedure. 25 published here, 4500+ in the internal library |
 | `tools` | SQL (read-only), files, browser (Playwright/CDP), screen control, messaging, documents |
 | `risk gate` | Blocks destructive patterns (`rm -rf`, `DROP TABLE`, `mkfs`, shutdown) before any model call |
 | `verification` | A claimed action is only accepted with evidence (file exists, row count, window title, OCR text) |

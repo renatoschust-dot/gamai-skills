@@ -1,72 +1,63 @@
-# gamAI Skills
+# GAMA skills
 
-[![validate-skills](https://github.com/renatoschust-dot/gamai-skills/actions/workflows/validate-skills.yml/badge.svg)](https://github.com/renatoschust-dot/gamai-skills/actions/workflows/validate-skills.yml)[![license: MIT for this repo](https://img.shields.io/badge/license-MIT%20(this%20repo)-blue.svg)](LICENSE)
+**25 skills we actually use**, written here, for [opencode](https://opencode.ai), Claude Code and
+any host that reads the Agent Skills format. Nothing third-party is bundled: earlier versions of
+this repository carried 992 skills, 565 of which had no recorded origin, so their licence could not
+be stated. That library is still in git history (tag `pre-gama-only-2026-11-26`).
 
+Each skill is a directory with a `SKILL.md`: frontmatter (`name`, `description`), then the
+procedure, the commands, and what the skill does **not** prove.
 
-**[gamAI Core 100](CORE_100.md)** - the 100 flagship skills to start with. Full library: **992 production-ready Agent Skills** for Claude Code, Cursor, opencode, and any tool that speaks the Agent Skills format.
+## Install
 
-Each skill is a self-contained `SKILL.md`. Drop it in and your agent instantly gets a proven workflow.
-
-**Provenance:** 992 skills, 427 with a `source:` field, 565 without one. The MIT licence here
-covers what originated in this repository; third-party skills keep their own terms, and
-unattributed skills make no licence claim. Read [`SKILLS_PROVENANCE.md`](SKILLS_PROVENANCE.md)
-before redistributing; it also says how to get a skill attributed or removed.
-
-## Install (Claude Code)
-
-```
-/plugin marketplace add renatoschust-dot/gamai-skills
+```bash
+git clone https://github.com/renatoschust-dot/gamai-skills
+cp -r gamai-skills/skills/* ~/.agents/skills/        # opencode / any Agent Skills host
+cp -r gamai-skills/skills/* .claude/skills/          # Claude Code, per project
 ```
 
-## Install (manual / any agent)
+Plugin marketplace (Claude Code): `/plugin marketplace add renatoschust-dot/gamai-skills`
 
-Copy folders from `skills/` into:
-
-- Claude Code: `.claude/skills/`
-- opencode / Cursor / Windsurf: your skills directory
-- any Agent Skills host: its skills folder
-
-## What's inside
-
-| Area | Skills | Examples |
-|---|---|---|
-| AI & agents | 60+ | agent orchestration, RAG, prompt engineering, MCP, evaluations |
-| Development | 50+ | code review, testing, refactoring, APIs, git workflows |
-| Web & design | 45+ | React, frontend, UI/UX, design systems, accessibility |
-| Marketing & sales | 35+ | SEO, AEO, ads, copywriting, cold email, funnels |
-| Data | 25+ | SQL, dbt, pandas, pipelines, analytics |
-| DevOps & cloud | 30+ | Docker, Kubernetes, CI/CD, Terraform, AWS/GCP/Azure |
-| HR | 35+ | hiring, interviewing, onboarding, performance |
-| Legal | 15+ | contract review, GDPR, compliance |
-| Business & finance | 15+ | pricing, cash flow, proposals, unit economics |
-| Security | 10+ | OWASP, hardening, threat modeling, audits |
-| Health, media, education | 25+ | medical, video/audio, image, teaching |
-| And much more | 600+ | domain-specific playbooks |
-
-## Signature skills (hand-written, tested)
+## What is inside
 
 | Skill | What it does |
 |---|---|
-| `task-dag` | Split a goal into 5-15+ branches; safety layer before any AI call |
-| `self-healing-services` | Watchdog that keeps services/tunnels alive (no admin) |
-| `report-with-images` | Finished DOCX + PDF report with real images in one command |
-| `gama-invoice` | Invoices and proforma with exact VAT math |
-| `gama-pricing` | Price / margin / markup with sanity checks |
-| `gama-seo-audit` | 12-point on-page SEO audit with a prioritized fix list |
-| `gama-contract-review` | Contract red-flag list with clause references |
-| `gama-cold-email` | B2B cold outreach + follow-up that gets replies |
-| `full-output-enforcement` | Force complete, unabridged output with no placeholders |
-| `verification-before-completion` | Evidence before claims — run it, don't assume it |
+| `gama-accounting` | Use for accounting tasks - invoices, receipts, VAT, ledgers, financial reports. Trigger: "račun", "faktura", "predračun", "otpremnica", "PDV", "bil… |
+| `gama-agent-factory` | "Izrada privatnih AI agenata za firme. Custom agent koji radi zadatke 24/7. Aktivira se na 'napravi agenta', 'ai agent za firmu', 'privatni agent',… |
+| `gama-autonomous` | AUTONOMOUS AGENTS — Agents that work without supervision, make decisions, handle complex workflows. Self-healing, self-optimizing. |
+| `gama-cli` | Jedinstveni GAMA CLI (`gama`) - sve radi preko jedne komande (CLI-Anything stil): mozgovi (ask/orchestrate/search/rag/sub), flota i HUMAN COMPUTE (… |
+| `gama-customer-search` | Use when searching for customers/partners in GAMA TRADE database. Handles customer lookup, JIB/PDV search, address verification. Trigger: "traži ku… |
+| `gama-email` | Use when sending emails via SMTP for GAMA TRADE. Handles email composition, attachment sending, and email templates. Trigger: "posalji email", "ema… |
+| `gama-google-ads` | Google Ads oglašavanje za GAMA TRADE — kampanje, ključne riječi, budžet, mjerenje, API. Aktivira se na 'Google Ads', 'kampanja', 'ključne riječi',… |
+| `gama-hc-harness` | Human Compute (HC) automation harness — deterministički upravlja računarom (klik, kucanje, čitanje ekrana) preko UI Automation prvo, pa koordinate,… |
+| `gama-inventory` | Upravljanje zalihama za GAMA TRADE — stanje, ulaz robe, izlaz robe, reklamacije, inventura, SQL upiti za zalihe. Aktivira se na 'zalihe', 'stock',… |
+| `gama-knowledge-search` | Use before any GAMA TRADE task to automatically search GAMA_TRADE_ZNANJE.md for relevant knowledge, procedures, rules, and configuration. Ensures a… |
+| `gama-omni` | MASTER ORCHESTRATOR — Handles ANY task automatically. Routes to best skills, learns new ones if needed, self-organizes. Use this for EVERYTHING. Th… |
+| `gama-pdv` | PDV u Bosni i Hercegovini — obračun 17%, prijava PDV-a, ulazni/izlazni PDV, evidencija, ePorezi, rokovi, registracija. Aktivira se na 'PDV', 'porez… |
+| `gama-ponuda-workflow` | Use when the user asks to generate a quotation/offer/ponuda for GAMA TRADE, create a price quote, send a commercial offer to a customer, or prepare… |
+| `gama-predictive` | PREDICTIVE AI — Anticipates customer needs, predicts trends, foresees problems before they happen. 10x advantage through prediction. |
+| `gama-racunovodstvo` | Računovodstvo za GAMA TRADE — knjiženje faktura, kontni plan, bilans, zaključci. Aktivira se na 'računovodstvo', 'knjiženje', 'bilans', 'kontni pla… |
+| `gama-sandbox-srt` | Izoluj pokretanje nepouzdanog koda, skillova ili MCP servera preko Anthropic Sandbox Runtime (srt) - OS-level fs + mreza gate BEZ Docker kontejnera… |
+| `gama-sec-harness` | Autonomni security harness (Anthropic defending-code-reference-harness) - threat-model -> recon -> vuln-scan -> triage -> patch sa execution-verifi… |
+| `gama-self-organize` | SELF-ORGANIZING SYSTEM — Automatically organizes work, prioritizes tasks, manages time, optimizes workflows. The conductor of the orchestra. |
+| `gama-seo` | Use for SEO optimization of gamatrade.ba - meta tags, schema markup, content optimization, AEO. Trigger: "SEO", "meta", "schema", "optimiziraj stra… |
+| `gama-stock-check` | Use when checking stock availability, quantities, or prices in GAMA TRADE databases. Handles SQL queries for artikli, zalihe, cijene. Trigger: "ima… |
+| `gama-stream` | GAMA Stream — control-first low-latency WebRTC/WHEP streaming and remote input. Use when the user asks to stream a screen, control a machine remote… |
+| `gama-superbrowser` | Jedinstveni GAMA browser/devtools tool preko CDP (Chrome/Edge). Koristi ga kad treba otvoriti sajt, pročitati stranicu, KLIKNUTI element, popuniti/… |
+| `gama-vmlab-lab` | Radi na GAMA vmlab (Lab VM) — pravi lokalni Docker daemon, gVisor, k3s, Firecracker mikro-VM sa KVM-om, gama-net bridge i GPU. Koristi kad treba iz… |
+| `gama-whatsapp` | Use for WhatsApp bot operations, sending voice messages, or interacting with WhatsApp for GAMA TRADE. Trigger: "whatsapp", "pošalji poruku", "glaso… |
+| `gama-wordpress` | Use for WordPress/gamatrade.ba operations - page editing, product updates, REST API calls. Trigger: "wordpress", "gamatrade.ba", "stranica", "proiz… |
 
-## Why
+## Honest notes
 
-Most "skill packs" are prompt dumps. These are narrow, tested, and boring on purpose — one job each, with an explicit output format, so an agent cannot drift.
+- These describe **how we work**, not a product: several assume GAMA's own services (`gama` CLI,
+  Human Compute, the ERP). The addresses and credentials are not in this repository — the skills
+  say which environment variable supplies them.
+- None of them is a sandbox. A skill that automates a screen, a browser or SQL runs with the
+  permissions of whoever invokes it; read it before you let an agent follow it.
+- Two skills are large and load-bearing: `gama-hc-harness` (drive a GUI deterministically with
+  verification) and `gama-superbrowser` (read/click a real page over CDP). Start there.
 
 ## License
 
-MIT — free to use and modify.
-
-## Links
-
-- Website: https://gamai.io
-- Skill browser: https://gamai.io/gamai-skills
+MIT for everything in this repository — it is all authored here. See [`LICENSE`](LICENSE).
