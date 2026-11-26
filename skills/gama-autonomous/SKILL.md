@@ -28,7 +28,7 @@ description: AUTONOMOUS AGENTS — Agents that work without supervision, make de
 
 ### 1. Auto-Email Pipeline
 ```
-Trigger: Nova ponuda u SQL bazi
+Trigger: a new offer appears in the system
   → Agent čita podatke kupca
   → Generira personaliziran email
   → Šalje email

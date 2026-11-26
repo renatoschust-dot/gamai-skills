@@ -62,7 +62,7 @@ def detektiraj_trendove():
     return future_demand
 ```
 
-## Primjena u GAMA TRADE
+## Primjena u our company
 
 ### Customer Prediction
 - Koji kupac će kupiti sljedeći mjesec?

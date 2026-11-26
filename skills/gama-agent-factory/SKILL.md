@@ -32,9 +32,9 @@ AI asistent koji:
 
 ### 2. Kreiramo agenta
 ```bash
-# Primjer: agent za GAMA TRADE
-# - Čita kupce iz SQL (kupdob tabela)
-# - Generiše ponude (brza_ponuda.py)
+# Primjer: agent za our company
+# - Čita kupce iz SQL (customers table tabela)
+# - Drafts offers (your own script)
 # - Šalje mailove (SMTP gamatrade.ba)
 # - Pretražuje šifrarnik (semapi)
 ```

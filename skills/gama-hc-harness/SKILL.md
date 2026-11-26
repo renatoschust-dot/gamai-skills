@@ -95,7 +95,7 @@ Parametri (`{{konto}}`, `{{pin}}`) — iz naših alata (SQL/tajne), nikad hardko
 |---|---|
 | **HC daemon (:7100)** | izvršava atomične akcije na ciljnoj mašini (`tap`, `type`, `key`, `find`, `uiact`) |
 | **Skillovi** | ruta poziva skill za domenu (npr. `gama-logistika` za PostIS) |
-| **SQL (vp2026)** | parametri rute (kupac, artikal, cijena) — konto/matbroj |
+| **SQL (the ERP database)** | parametri rute (kupac, artikal, cijena) — konto/matbroj |
 | **Tajne** | `{{pin}}` iz `.gama_api_keys.env`, nikad u YAML-u |
 | **Filesystem** | logovi (JSON) + screenshot dokazi u `logs/<flow>/<run>/` |
 | **Verifikacija** | `verification-before-completion` skill — dokaz prije "gotovo" |

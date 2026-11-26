@@ -75,8 +75,8 @@ Svako jutro (07:00):
   ━━━━━━━━━━━━━━━━━
   
   📋 Zadaci za danas (5 najvažnijih):
-     1. [HIGH] Ponuda za ALFA (30 min)
-     2. [HIGH] Faktura za UVES (15 min)
+     1. [HIGH] Offer for ClientA (30 min)
+     2. [HIGH] Invoice for ClientB (15 min)
      3. [MED] Email kupcima (10 min)
      4. [MED] Inventar (20 min)
      5. [LOW] Blog post (30 min)
@@ -103,8 +103,8 @@ Svako veče (18:00):
   ━━━━━━━━━━━━━━━━━
   
   ✅ Završeno (8/10 zadataka):
-     • Ponuda br. 372 → poslana
-     • Faktura UVES → unesena
+     • Offer #372 → poslana
+     • Invoice for ClientB → unesena
      • Email kupcima → poslan
   
   ⏳ Nedovršeno (2):
@@ -117,7 +117,7 @@ Svako veče (18:00):
      • Fokus: 4.2h (65%)
   
   💡 Lekcije:
-     • Faktura UVES zahtijevala ručni unos
+     • Invoice for ClientB zahtijevala ručni unos
      → Dodaj u auto-learn za sljedeći put
 ```
 
@@ -136,7 +136,7 @@ Prepoznaj obrasce:
 Otkrij abnormalnosti:
   • Prodaja pala za 50% (reakcija!)
   • Kupac naručio 3x više nego obično
-  • Faktura 5x veća od prosjeka
+  • Invoice 5x above average
 ```
 
 ### Optimization Suggestions
