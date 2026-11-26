@@ -54,8 +54,17 @@ sudo debootstrap --variant=minbase --include=python3,iproute2,procps jammy /tmp/
 sudo mkfs.ext4 -q -F -d /tmp/root /root/gama_mvm/template.ext4     # 1.2 GB
 ```
 
-Measured on that host: **boot 819 ms**, `python3 -c 'print(2+2)'` inside the guest returns `4`,
-`id -u` returns `0`, no network device attached.
+Measured on that host (1 vCPU / 256 MB, 2026-11-26, `sudo python3 /tmp/fc_snap.py`):
+
+| Operation | Result |
+|---|---|
+| boot to a usable shell | **810 ms** |
+| full snapshot (268 MB memory) | **3.3 s** |
+| restore (load + resume) | **7.2 ms**, first command in the guest returns `42` |
+| exec through the serial console | ~92 ms per command |
+
+The serial console is the transport, so an exec costs ~92 ms; there is **no vsock** in this
+template, and the old "vsock exec ~11 ms / 5.8 ms fork" figures are withdrawn.
 
 `mandate`'s bridge uses exactly this pool:
 
