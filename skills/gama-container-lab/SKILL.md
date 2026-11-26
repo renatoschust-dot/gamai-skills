@@ -38,11 +38,39 @@ gama hc shell gama-lab-fra "docker compose -f /srv/lab/compose.yml config -q && 
 write `compose.yml` *first*; a file exported from `docker inspect` is a record, not a deployment —
 `up` on it creates new containers with new names.
 
-## k3s / Firecracker need a KVM host
+## Firecracker works on `crusoe-cpu1` (verified 2026-11-26)
 
-Neither `gama-lab-fra` nor the Crusoe nodes expose `/dev/kvm`, so k3s-in-Docker and Firecracker
-microVMs cannot run there. Those were measured on the retired lab VM (2026-10-31) and the numbers
-below are **historical**:
+`crusoe-cpu1` **does** expose `/dev/kvm` (8 vCPU, 31 GB RAM) and already had the pieces:
+`/opt/fc/release-v1.17.0-x86_64/firecracker-v1.17.0-x86_64` and `/opt/fc/vmlinux.bin`.
+
+The missing part was a guest image. It is now built there and reproducible:
+
+```bash
+sudo bash /opt/gama-cell/guest/build_rootfs.sh          # debootstrap jammy + systemd
+# or the microVM template used by gama_mvm (python3 inside, serial shell):
+sudo debootstrap --variant=minbase --include=python3,iproute2,procps jammy /tmp/root \
+  http://archive.ubuntu.com/ubuntu
+# /sbin/init: mount proc/sys/dev, print "login: ", exec /bin/sh -i </dev/ttyS0 >/dev/ttyS0
+sudo mkfs.ext4 -q -F -d /tmp/root /root/gama_mvm/template.ext4     # 1.2 GB
+```
+
+Measured on that host: **boot 819 ms**, `python3 -c 'print(2+2)'` inside the guest returns `4`,
+`id -u` returns `0`, no network device attached.
+
+`mandate`'s bridge uses exactly this pool:
+
+```bash
+sudo GAMA_MVM_DIR=/opt/gama_mvm /opt/gama_mvm/venv/bin/python3 \
+  -m mandate.firecracker_bridge -- python3 /tmp/fake_mcp.py
+```
+
+Verified: JSON-RPC request → guest → response with `inside_vm: true`.
+
+`gama-lab-fra` and `crusoe-smoke` have no `/dev/kvm`, so containers there are plain Docker.
+k3s is **not** installed on `crusoe-cpu1` on purpose: the node already runs containerd and other
+workloads, and what mandate needs is the microVM, not an orchestrator.
+
+Older runtime numbers (retired lab VM, 2026-10-31) remain below as **historical** only:
 
 | runtime | getpid | open+close | stat | fork+wait |
 |---|---:|---:|---:|---:|
