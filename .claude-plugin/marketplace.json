@@ -2,14 +2,14 @@
   "name": "gamai-skills",
   "owner": "gamAI",
   "metadata": {
-    "description": "Practical Agent Skills for everyday business and dev work.",
-    "version": "1.0.0"
+    "description": "GAMA's own Agent Skills: Human Compute harness, superbrowser, PDV/ponuda/accounting for GAMA TRADE, and agent meta-skills.",
+    "version": "2.0.0"
   },
   "plugins": [
     {
       "name": "gamai-skills",
       "source": "./",
-      "description": "A growing library of production-ready Agent Skills (emails, SEO, meeting notes, invoices, translation)."
+      "description": "25 skills authored for GAMA's own stack — published so they can be read, not bundled with third-party work."
     }
   ]
 }
