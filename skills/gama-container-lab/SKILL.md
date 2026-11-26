@@ -63,8 +63,23 @@ Measured on that host (1 vCPU / 256 MB, 2026-11-26, `sudo python3 /tmp/fc_snap.p
 | restore (load + resume) | **7.2 ms**, first command in the guest returns `42` |
 | exec through the serial console | ~92 ms per command |
 
-The serial console is the transport, so an exec costs ~92 ms; there is **no vsock** in this
-template, and the old "vsock exec ~11 ms / 5.8 ms fork" figures are withdrawn.
+That template talks over the **serial console**, so an exec costs ~92 ms.
+
+There is a second template with **vsock** (`/root/gama-cell/rootfs-vsock.ext4`, built by
+`gama-cell/guest/build_rootfs.sh`: debootstrap jammy + systemd + `shard_agent` on vsock 5000).
+Measured on the same host, 1 vCPU / 256 MB:
+
+| Path | Result |
+|---|---|
+| boot until the agent accepts a connection | 1.43 s |
+| `id -u` over vsock | **2.2 ms** |
+| `true`, n=20 | **median 2.0 ms**, p95 5.3 ms |
+
+So vsock is ~45× cheaper per command than the serial console. The vsock template has no
+`python3` by default (add `--include=python3` when building if you need it), and `gama_mvm.py`
+does not speak vsock — use it for shell commands, and the serial template for the
+`mandate` bridge. The earlier "vsock exec ~11 ms / 5.8 ms fork" figures were never measured
+on this setup and stay withdrawn; the numbers above replace them.
 
 `mandate`'s bridge uses exactly this pool:
 
